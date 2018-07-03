@@ -365,6 +365,9 @@ class Tub(object):
             #load objects that were saved as separate files
             if typ == 'image_array':
                 img = Image.open((val))
+                img_crop = img.crop((0, 40, 160, 120))
+                img_resize = img_crop.resize((160, 120))
+                #Here cut half of image, and expand it                
                 val = np.array(img)
 
             data[key] = val
